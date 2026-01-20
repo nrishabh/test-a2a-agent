@@ -7,26 +7,24 @@ from a2a.types import AgentCapabilities, AgentCard, AgentSkill
 from a2a.utils import new_agent_text_message
 
 skill = AgentSkill(
-    id="city_facts",
-    name="City Facts",
-    description="Returns an interesting fact about a city",
-    tags=["city", "facts", "trivia"],
-    examples=[
-        "Tell me about Paris",
-        "What's interesting about Tokyo?",
-        "Facts about New York",
-    ],
+    id="hello_world",
+    name="Returns hello world",
+    description="just returns hello world",
+    tags=["hello world"],
+    examples=["hi", "hello world"],
 )
+# --8<-- [end:AgentSkill]
 
-
+# --8<-- [start:AgentCard]
+# This will be the public-facing agent card
 public_agent_card = AgentCard(
-    name="City Facts Agent",
-    description="An agent that tells you an interesting fact about the city you provide",
-    url="https://test-a2a-agent.onrender.com",
+    name="Hello World Agent",
+    description="Just a hello world agent",
+    url="http://localhost:9999/",
     version="1.0.0",
     default_input_modes=["text"],
     default_output_modes=["text"],
-    capabilities=AgentCapabilities(streaming=False),
+    capabilities=AgentCapabilities(streaming=True),
     skills=[skill],  # Only the basic skill for the public card
 )
 
